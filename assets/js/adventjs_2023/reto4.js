@@ -35,19 +35,57 @@
 //     return resultado;
 // }
 
+// function decode(message) {
+    
+//     const regex = /\(([^()]*)\)/
+//     let match 
+//     let inverseArray
+    
+//     while (match = regex.exec(message)) {
+        
+//         // inicializamos donde guardo cadena invertida
+//         inverseArray = ''
+
+//         // invierte una cadena de caracteres
+//         for (let i = match[1].length - 1; i >= 0; i--) {
+//           inverseArray += match[1].charAt(i);
+//         }
+
+//         // reemplazamos la cadena con los parentesis 
+//         // por la cadena sin parentesis e invertida
+//         message = message.replace(match[0],inverseArray);
+//     }
+//     return message;
+// }
+
 function decode(message) {
-    const regex = /\(([^()]*)\)/;
-    let match = regex.exec(message);
-    while (match) {
-        message = message.replace(
-          match[0], 
-          match[1].split('').reverse().join('')
-        );
-        match = regex.exec(message);
-    }
-    return message;
+ 
+  const regex = /\(([^()]*)\)/
+  let match 
+     
+  while (match = regex.exec(message)) {
+    message = message.replace(
+      match[0], 
+      match[1].split('').reverse().join('')
+    )
+  }
+      
+  return message
 }
 
+// function decode(message) {
+    
+//     const regex = /\(([^()]*)\)/
+//     let match
+
+//     while (match = regex.exec(message)) {
+//         message = message.replace(
+//           regex, 
+//           (_, match) => match.split('').reverse().join('')
+//         );
+//     }
+//     return message;
+// }
 
 let a = decode('hola (odnum)')
 console.log(a) // hola mundo

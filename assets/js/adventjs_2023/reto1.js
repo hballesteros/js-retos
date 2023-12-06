@@ -1,42 +1,29 @@
-// En la fábrica de juguetes del Polo Norte, 
-//cada juguete tiene un número de identificación único.
+/*
 
-// Sin embargo, debido a un error en la máquina de juguetes, 
-// algunos números se han asignado a más de un juguete.
+Challemge #1: First gift repeated
 
-// ¡Encuentra el primer número de identificación que se ha repetido, 
-// donde la segunda ocurrencia tenga el índice más pequeño!
+En la fábrica de juguetes del Polo Norte, 
+cada juguete tiene un número de identificación único.
 
-// En otras palabras, si hay más de un número repetido, 
-// debes devolver el número cuya segunda ocurrencia aparezca primero en la lista. 
-// Si no hay números repetidos, devuelve -1.
+Sin embargo, debido a un error en la máquina de juguetes, 
+algunos números se han asignado a más de un juguete.
 
-// ¡Ojo! Los elfos dicen que esto es una prueba técnica de Google.
+¡Encuentra el primer número de identificación que se ha repetido, 
+donde la segunda ocurrencia tenga el índice más pequeño!
 
-// Opcion 1
-// function findFirstRepeated(gifts) {
-//     const seen = new Set();
-//     for (const gift of gifts) {
-//         if (seen.has(gift)) {
-//             return gift;
-//         }
-//         seen.add(gift);
-//     }
-//     return -1;
-// }
+En otras palabras, si hay más de un número repetido, 
+debes devolver el número cuya segunda ocurrencia aparezca primero en la lista. 
+Si no hay números repetidos, devuelve -1.
 
-// Opcion 2
-// function findFirstRepeated(gifts) {
-//     const repeatedIndex = gifts.findIndex((gift, idx) => (
-//       gifts.indexOf(gift) !== idx 
-//     )) 
-//     return gifts[repeatedIndex] ?? repeatedIndex
-// }
+¡Ojo! Los elfos dicen que esto es una prueba técnica de Google.
 
-// Opcion 3 (menor complejidad cognitiva)
+*/
+
+
 function findFirstRepeated(gifts) {
     return gifts.find((gift, idx) => gifts.indexOf(gift) !== idx ) ?? -1
 }
+
 
 let giftIds = [2, 1, 3, 5, 3, 2]
 const firstRepeatedId = findFirstRepeated(giftIds)

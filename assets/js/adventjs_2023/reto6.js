@@ -33,18 +33,23 @@ Keep in mind that it doesn't matter whether it is to the left or right,
 the distance is the absolute value of the maximum distance traveled at the end of the movements.
 
 */
+// function maxDistance(movements) {
+    
+//     let distance = 0
+//     let incognitDistance = 0
+
+//     for(const movement of movements){
+//       if(movement === '>') distance++
+//       else if(movement === '<') distance--
+//       else incognitDistance++
+//     }
+
+//     return Math.abs(distance) + incognitDistance
+// }
+
 function maxDistance(movements) {
-    let distance = 0
-    let maxDistance = 0
+    return Math.abs(movements.split('>').length - 
+    movements.split('<').length) +
+    movements.split('*').length - 1
+  }
 
-    for(const movement of movements){
-      if(movement === '>') distance++
-      else if(movement === '<') distance--
-      else {
-          maxDistance - 1 < Math.abs(distance + 1) ? distance++ : distance--  
-      }
-      maxDistance = Math.max(maxDistance, Math.abs(distance))    
-    }
-
-    return Math.abs(distance)
-}

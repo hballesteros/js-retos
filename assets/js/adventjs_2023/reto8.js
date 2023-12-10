@@ -27,25 +27,27 @@ console.log(result1)
 
 */
 
-// function organizeGifts(gifts) {
+function organizeGifts(gifts) {
   
-//     const amount = gifts.match(/\d+/g)
-//     const type = gifts.match(/[a-z]/g)
-//     let result = ''       
+    const amount = gifts.match(/\d+/g)
+    const type = gifts.match(/[a-z]/g)
+    let result = ''
+    let i = 0       
 
-//     for ( let i = 0; i <= amount.length; i++){
-//         let pallets = Math.trunc(amount[i]/50)
-//         let boxes = Math.trunc(amount[i]/10)
-//         let additionals = amount[i]%10
-//         boxes = ('{' + type[i] + '}').repeat(boxes - pallets*5)
-//         pallets =  ('[' + type[i] + ']').repeat(pallets)
-//         additionals = (additionals > 0) 
-//         ? '(' + type[i].repeat(additionals) + ')' 
-//         : ''
-//         result += pallets + boxes + additionals
-//     }
-//     return result
-// }
+    for ( let a of amount){
+      let pallets = Math.trunc(a/50)
+      let boxes = Math.trunc(a/10) - pallets*5
+      let additionals = a%10
+      const name = type[i]
+
+      result += ('[' + name + ']').repeat(pallets)
+      result += ('{' + name + '}').repeat(boxes)
+      result += '(' + name.repeat(additionals) + ')' 
+
+      i++
+    }
+    return result.replaceAll('()', '')
+}
 
 // function organizeGifts(gifts) {
   
@@ -76,7 +78,7 @@ console.log(result1)
 
 function organizeGifts(gifts) {
     const countGifts = gifts.match(/\d+/g)
-    const nameGifts = gifts.match(/[^0-9]/g)
+    const nameGifts = gifts.match(/[a-z]/g)
   
     let response = ""
     let i = 0
